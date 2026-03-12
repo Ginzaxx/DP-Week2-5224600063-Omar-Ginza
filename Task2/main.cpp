@@ -1,29 +1,30 @@
-#include <iostream>
-#include <vector>
-#include <memory>
 #include "GameSession.h"
-#include "DeicideCard.h"
+#include "ScriptedHandGenerator.h"
+#include "AutoCardSelector.h"
 #include "DeicideBondRule.h"
 #include "DeicideScoringRule.h"
 #include "DeicideWinCondition.h"
 #include "DeicideShopSystem.h"
 
 // ============================================================
-// main() — merakit semua komponen, inject ke GameSession.
+// main() -- merakit semua komponen, inject ke GameSession.
 //
-// Phase 1 (GenerateHand) dan Phase 2 (SelectCards) sengaja
-// dibiarkan placeholder di GameSession karena implementasi
-// penuhnya memerlukan sistem Deck + input player yang
-// di luar scope skeletal ini.
+// Untuk ekspansi ke implementasi penuh, HANYA ganti ini:
+//   ScriptedHandGenerator -> RandomHandGenerator (pakai Deck)
+//   AutoCardSelector      -> PlayerInputSelector (input keyboard)
+// GameSession tidak perlu disentuh sama sekali.
 // ============================================================
 int main() {
-    DeicideBondRule     bond;
-    DeicideScoringRule  scoring;
-    DeicideWinCondition win;
-    DeicideShopSystem   shop;
+    ScriptedHandGenerator generator;  // Phase 1
+    AutoCardSelector      selector;   // Phase 2
+    DeicideBondRule       bond;       // Phase 3
+    DeicideScoringRule    scoring;    // Phase 4
+    DeicideWinCondition   win;        // Phase 5 & advance
+    DeicideShopSystem     shop;       // Phase 6
 
-    GameSession session(&bond, &scoring, &win, &shop, 300);
+    GameSession session(&generator, &selector,
+                        &bond, &scoring, &win, &shop,
+                        300);
     session.Start();
-
     return 0;
 }

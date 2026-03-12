@@ -2,11 +2,11 @@
 #include "IShopSystem.h"
 #include <iostream>
 
-// Placeholder: shop nyata menawarkan Kremnos Pack / Okhema Pack
 class DeicideShopSystem : public IShopSystem {
 public:
     void OpenShop() override {
-        std::cout << "  [placeholder] Shop: Kremnos Pack | Okhema Pack\n";
-        std::cout << "  [placeholder] Shop skipped\n";
+        std::cout << "  [Kremnos Pack]  upgrade Journey/Cycle kartu pilihan\n";
+        std::cout << "  [Okhema Pack]   upgrade nilai buff salah satu bond\n";
+        std::cout << "  (placeholder -- shop skipped)\n";
     }
 };

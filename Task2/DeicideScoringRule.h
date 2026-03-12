@@ -2,7 +2,7 @@
 #include "IScoringRule.h"
 #include <iostream>
 
-// Placeholder: rumus nyata = totalJourney * totalCycle
+// Rumus: totalJourney * totalCycle
 class DeicideScoringRule : public IScoringRule {
 public:
     int ComputeScore(const std::vector<std::unique_ptr<ICard>>& cards) override {
@@ -12,9 +12,9 @@ public:
             c += card->GetCycle();
         }
         int score = j * c;
-        std::cout << "  [placeholder] Journey=" << j
-                  << " Cycle=" << c
-                  << " => Score=" << score << "\n";
+        std::cout << "  totalJourney=" << j
+                  << "  totalCycle=" << c
+                  << "  =>  Score = " << j << " x " << c << " = " << score << "\n";
         return score;
     }
 };
