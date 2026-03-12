@@ -1,0 +1,28 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build with g++",
+      "type": "shell",
+      "command": "g++",
+      "args": [
+        "-g",
+        "-o", "${workspaceFolder}/src/build/output.exe",
+        "${workspaceFolder}/src/main.cpp",
+        "${workspaceFolder}/src/Cards/BaseCard.cpp",
+        "${workspaceFolder}/src/Cards/CardRegistry.cpp",
+        "${workspaceFolder}/src/Cards/Deck.cpp",
+        "${workspaceFolder}/src/ModifierFactory.cpp",
+        "${workspaceFolder}/src/RunSession.cpp",
+        "${workspaceFolder}/src/ScoringSystem.cpp",
+        "${workspaceFolder}/src/ShopSystem.cpp",
+        "-I${workspaceFolder}/src"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": ["$gcc"]
+    }
+  ]
+}
