@@ -65,6 +65,8 @@ Task2/
 
 ### Langkah yang tidak boleh berubah urutannya
 
+| Urutan | Fase | Alasan |
+|---|---|---|
 | 1 | Generate hand | Kartu harus ada sebelum player bisa memilih |
 | 2 | Player pilih kartu | Input player harus diterima sebelum sistem memproses apapun |
 | 3 | Apply bond | Bond hanya berlaku pada kartu yang dipilih, bukan seluruh hand |
